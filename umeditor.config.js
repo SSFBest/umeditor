@@ -257,7 +257,7 @@ etpl.config({
  		,outputXssFilter: true
  		// xss过滤白名单 名单来源: https://raw.githubusercontent.com/leizongmin/js-xss/master/lib/default.js
         ,whiteList: {
-            a:      ['target', 'href', 'title', 'style', 'class', 'id'],
+            a:      ['target', 'href', 'title', 'style', 'class', 'id','go','ref'],
 			abbr:   ['title', 'style', 'class', 'id'],
 			address: ['style', 'class', 'id'],
 			area:   ['shape', 'coords', 'href', 'alt', 'style', 'class', 'id'],
