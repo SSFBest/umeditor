@@ -17,7 +17,9 @@
 
     //背景保存在临时目录中
     $config[ "savePath" ] = $Path;
-    $up = new Uploader("upfile", $config, $base64);
+    $up = new Uploader( "upfile" , $config );
+    $type = $_REQUEST['type'];
+    // callback 部分需要自行对用户提交的内容进行过滤，防止 XSS 漏洞。
     $callback=$_GET['callback'];
 
     $info = $up->getFileInfo();

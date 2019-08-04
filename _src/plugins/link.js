@@ -57,8 +57,8 @@ UM.plugins['link'] = function(){
 
     this.addOutputRule(function(root){
         $.each(root.getNodesByTagName('a'),function(i,a){
-            var _href = utils.html(a.getAttr('_href'));
-            if(!/^(ftp|tel|https?|\/|file)/.test(_href)){
+            var _href = a.getAttr('_href');
+            if(!/^(ftp|https?|\/|file)/.test(_href)){
                 _href = 'http://' + _href;
             }
             a.setAttr('href', _href);
@@ -70,7 +70,7 @@ UM.plugins['link'] = function(){
     });
     this.addInputRule(function(root){
         $.each(root.getNodesByTagName('a'),function(i,a){
-            a.setAttr('_href', utils.html(a.getAttr('href')));
+            a.setAttr('_href', a.getAttr('href'));
         })
     });
     me.commands['link'] = {
@@ -78,13 +78,19 @@ UM.plugins['link'] = function(){
 
             var me = this;
             var rng = me.selection.getRange();
+            opt._href && (opt._href = utils.unhtml(opt._href, /[<">'](?:(amp|lt|quot|gt|#39|nbsp);)?/g));
+            opt.href && (opt.href = utils.unhtml(opt.href, /[<">'](?:(amp|lt|quot|gt|#39|nbsp);)?/g));
             if(rng.collapsed){
                 var start = rng.startContainer;
                 if(start = domUtils.findParentByTagName(start,'a',true)){
                     $(start).attr(opt);
                     rng.selectNode(start).select()
                 }else{
+<<<<<<< HEAD
                     rng.insertNode($('<a>').text(opt.href).attr(opt)[0]).select();
+=======
+                    rng.insertNode($('<a>' + opt.href +'</a>').attr(opt)[0]).select()
+>>>>>>> 30b87925e7c725ec1ec6c487d4d80967cbcb58e3
 
                 }
 
