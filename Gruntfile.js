@@ -114,26 +114,13 @@ module.exports = function ( grunt ) {
                 dest: disDir
 
             },
-            asp: {
 
-                expand: true,
-                src: 'asp/**',
-                dest: disDir
-
-            },
-            jsp: {
-
-                expand: true,
-                src: 'jsp/**',
-                dest: disDir
-
-            },
-            net: {
-
-                expand: true,
-                src: 'net/**',
-                dest: disDir
-
+            mm:{
+                expand : true,
+                // flatten: true,
+                cwd:disDir,
+                src:'**',
+                dest:'D:/mywork/yueliang/static/umeditor/'
             }
         },
         transcoding: {
@@ -228,6 +215,7 @@ module.exports = function ( grunt ) {
         }
 
         tasks.push( 'transcoding' );
+        tasks.push( 'copy:mm' );
 
         //config修改
         updateConfigFile();

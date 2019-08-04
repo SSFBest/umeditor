@@ -1081,8 +1081,8 @@
             }
         },
         addOutputRule: function (rule,ignoreUndo) {
-            rule.ignoreUndo = ignoreUndo;
-            this.outputRules.push(rule);
+            // rule.ignoreUndo = ignoreUndo;
+            // this.outputRules.push(rule);
         },
         filterOutputRule: function (root,isUndoLoad) {
             for (var i = 0, ci; ci = this.outputRules[i++];) {

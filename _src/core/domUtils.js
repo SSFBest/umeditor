@@ -848,9 +848,6 @@ var domUtils = dom.domUtils = {
         }
         return true;
     },
-    isFillChar: function (node, isInStart) {
-        return node.nodeType == 3 && !node.nodeValue.replace(new RegExp((isInStart ? '^' : '' ) + domUtils.fillChar), '').length
-    },
     isBody: function(node){
         return $(node).hasClass('edui-body-container');
     }
