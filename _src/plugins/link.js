@@ -86,11 +86,8 @@ UM.plugins['link'] = function(){
                     $(start).attr(opt);
                     rng.selectNode(start).select()
                 }else{
-<<<<<<< HEAD
-                    rng.insertNode($('<a>').text(opt.href).attr(opt)[0]).select();
-=======
+
                     rng.insertNode($('<a>' + opt.href +'</a>').attr(opt)[0]).select()
->>>>>>> 30b87925e7c725ec1ec6c487d4d80967cbcb58e3
 
                 }
 
